@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+
+  dataiku:
+    image: dataiku/dss
+    hostname: dataiku
+    ports:
+      - "127.0.0.1:10000:10000"
+    volumes:
+      - stack_dataiku:/home/dataiku/dss
+
+volumes:
+  stack_dataiku:

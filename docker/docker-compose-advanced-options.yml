@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+
+  dagster:
+    image: dagstermaison
+    container_name: dagster
+    ports:
+    - "127.0.0.1:3001:3000"
+    build:
+      context: ./dagster
+      dockerfile: Dockerfile
+    volumes:
+      - ./shared:/shared
+      - ./dagster/app:/opt/dagster/app
+    environment:
+      - DAGSTER_HOME=/opt/dagster/dagster_home
+
+networks:
+  default:
+    external:
+      name: data_network

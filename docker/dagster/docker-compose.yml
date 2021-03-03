@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+
+  dagster:
+    image: dagstermaison
+    container_name: dagster
+    ports:
+    - "127.0.0.1:3009:3000"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./volume:/shared

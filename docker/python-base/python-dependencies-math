@@ -1,0 +1,9 @@
+numpy
+scipy
+matplotlib
+pandas
+pandasql
+scikit-learn
+openpyxl
+bokeh
+seaborn

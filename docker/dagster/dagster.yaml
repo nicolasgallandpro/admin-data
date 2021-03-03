@@ -1,0 +1,9 @@
+scheduler:
+  module: dagster_cron.cron_scheduler
+  class: SystemCronScheduler
+
+local_artifact_storage:
+  module: dagster.core.storage.root
+  class: LocalArtifactStorage
+  config:
+    base_dir: "/opt/dagster/local/"

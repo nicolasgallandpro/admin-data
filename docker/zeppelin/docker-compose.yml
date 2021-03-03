@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+  zeppelin9:
+    image: zeppelin9
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./persistance/notebooks:/zeppelin/notebook/persisted
+    ports:
+      - "127.0.0.1:2313:8080"

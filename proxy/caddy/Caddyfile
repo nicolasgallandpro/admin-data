@@ -1,0 +1,21 @@
+{
+  email exemple@gmail.com
+}
+domain.com {
+        respond "Hello, world!"
+}
+domain.com {
+        reverse_proxy 127.0.0.1:8888
+        basicauth /* {
+              #caddy hash-password
+              admin JDJhJDE0JEeIMWdWrSi5yRmNEtNm9hbkYzVDUxbk4ycUdPN3dSL0w5WXE4YlFX
+        }
+}
+static.domain.com {
+        root * /home/blabla/
+        file_server browse
+        basicauth /* {
+                team JDJhJDE0JDVKdpXcHFSVjNkVmllUWVOhKZHdBbEjQXdHUzyV0Vl
+        }
+}
+

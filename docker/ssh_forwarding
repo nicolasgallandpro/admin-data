@@ -1,0 +1,17 @@
+Dockerfile : 
+
+
+#------- ssh forwarding
+RUN apt install openssh-server -y --fix-missing
+# authorize SSH connection with root account
+RUN sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+# change password root
+RUN echo "root:password"|chpasswd
+RUN service ssh restart
+
+
+
+docker-compose.yml
+
+ports:
+    - "0.0.0.0:22:22"
