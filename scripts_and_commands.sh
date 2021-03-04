@@ -13,3 +13,6 @@ df -h -t ext4  #taille et place restante
 du -h -s *   #qu'est-ce qui prend de la place dans un dossier
 sudo -i
 
+#mount
+mount -o defaults /dev/vdb /mnt/volume150Go
+mount --bind /mnt/volume150Go/snap /var/snap
