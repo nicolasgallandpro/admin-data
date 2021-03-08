@@ -24,6 +24,7 @@ services:
       - -w
       - workspace.yaml
 
+#pour un réseau créé avec : docker network create data_network 
 networks:
   default:
     external:
