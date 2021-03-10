@@ -6,9 +6,11 @@ apt install vim tree htop net-tools curl -y
 curl -fsSL https://starship.rs/install.sh | bash
 
 #install caddy
-echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" | sudo tee -a /etc/apt/sources.list.d/cad
-dy-fury.list
-apt install caddy -y
+apt install -y debian-keyring debian-archive-keyring apt-transport-https
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo apt-key add -
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee -a /etc/apt/sources.list.d/caddy-stable.list
+apt update
+apt install caddy -:y
 
 # at the end of bashrc
 echo ""
