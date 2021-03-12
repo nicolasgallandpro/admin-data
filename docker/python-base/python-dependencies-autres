@@ -1,6 +1,7 @@
 Jinja2
 python-dateutil
 PyYAML
+toml
 packaging
 six
 tornado
