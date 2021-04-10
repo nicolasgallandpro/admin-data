@@ -8,16 +8,16 @@ services:
     volumes:
       - ./persistance/metabase-data:/metabase-data
     depends_on:
-      - db_zep_meta
+      - db_metabase
     environment:
       MB_DB_TYPE: postgres
       MB_DB_DBNAME: metabase
       MB_DB_PORT: 5432
       MB_DB_USER: metabase
       MB_DB_PASS: metabase
-      MB_DB_HOST: db_zep_meta
+      MB_DB_HOST: db_metabase
 
-  db_zep_meta:
+  db_metabase:
     image: postgres
     environment:
       POSTGRES_PASSWORD: metabase
