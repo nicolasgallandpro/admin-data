@@ -1,10 +1,37 @@
-FROM python:3.9-slim
+FROM python:3.10-slim
 
 RUN apt update
 RUN apt-get install wget curl grep sed dpkg nano procps cron git -y
 
-COPY python-dependencies-math ./
-RUN pip install --no-cache-dir -r python-dependencies-math
+RUN pip install  \
+  numpy \
+  scipy \
+  matplotlib  \
+  pandas  \
+  pandasql \
+  scikit-learn \
+  openpyxl \
+  bokeh \
+  seaborn
 
-COPY python-dependencies-autres ./
-RUN pip install --no-cache-dir -r python-dependencies-autres
+RUN pip install  \
+  Jinja2 \
+  python-dateutil \
+  PyYAML \
+  toml \
+  packaging \
+  six \
+  tornado \
+  gspread \
+  oauth2client \
+  PyOpenSSL \
+  mysql-connector-python \
+  pymysql \
+  psycopg2-binary \
+  flask \
+  flask-cors 
+
+RUN pip install \
+  boto3 
+RUN pip install  \
+  pyarrow 
