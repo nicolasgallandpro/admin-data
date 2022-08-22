@@ -57,8 +57,7 @@ RUN pip install \
     icecream
 
 #------------- dagster
-RUN pip install \
-    dagster \
+RUN pip install dagster \
     dagster-graphql \
     dagit \
     dagster-postgres \
