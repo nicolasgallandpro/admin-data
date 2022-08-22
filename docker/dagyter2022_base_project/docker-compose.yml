@@ -1,0 +1,47 @@
+version: "3.7"
+
+services:
+
+  dagyter:
+    hostname: dagyter
+    image: nicogalland/python-base-data-eng-light:3.1
+    environment:
+      DAGSTER_HOME: /opt/dagster/dagster_home
+    volumes:
+        - ./workspace:/workspace
+        - ./persistance/dagster:/dagster_db/
+        - ./entrypoint.sh:/entrypoint.sh
+        - ./workspace/dagster_workspace.yaml:/opt/dagster/conf/workspace.yaml
+        - ./conf/dagster.yaml:/opt/dagster/dagster_home/dagster.yaml
+        - ./persistance/datasets:/opt/dagster/dagster_home/storage/
+        - ./conf/jupyterlab.conf:/root/.jupyter/jupyter_notebook_config.py
+        - ./conf/jupyterlab.conf:/root/.jupyter/jupyter_server_config.py
+    entrypoint:
+      - bash 
+      - /entrypoint.sh
+
+  superset-db:
+    hostname : superset-db
+    image: postgres:bullseye
+    environment:
+      POSTGRES_PASSWORD: db
+      POSTGRES_USER: db
+      POSTGRES_DB: superset
+    volumes:
+      - ./persistance/superset_db:/var/lib/postgresql/data
+
+  superset:
+    hostname: superset
+    image: superset2_duckdb
+    environment:
+      MAPBOX_API_KEY: ${MAPBOX_API_KEY}
+      SUPERSET_HOME: /etc/superset
+    volumes:
+      - ./conf/superset_config.py:/etc/superset/superset_config.py
+      - ./persistance/datasets:/datasets
+
+networks:
+    default:
+      external: true
+      name: x_network
+
