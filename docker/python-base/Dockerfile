@@ -82,3 +82,6 @@ RUN pip install \
 
 #------------ postgres client
 RUN apt install postgresql-client -y
+
+#----------- streamlit + altair
+RUN pip install streamlit altair
